@@ -9,40 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
     @IBOutlet var questionLabel:UILabel!
-    @IBOutlet var answerLabel:UILabel
+    @IBOutlet var answerLabel:UILabel!
     @IBAction func showNextQuestion(_sender:UIButton){
      currentQuestionIndex += 1
-        if currentIndex ==question.count{
+        if currentQuestionIndex == questions.count{
             currentQuestionIndex = 0
         }
-        let question:String = question[currentQuestionIndex]
+        let question:String = questions[currentQuestionIndex]
         questionLabel.text = question
         answerLabel.text = "???"
     }
     @IBAction func showAnswer(_sender:UIButton){
-        let answer: String = answer[currentQuestionIndex]
+        let answer: String = answers[currentQuestionIndex]
     answerLabel.text = answer
     }
-    let question: [string] = [
+    let questions: [String] = [
     "what is 7+7",
     "what is the capital of vermont?",
     "what is cognac made from?"
     ]
-    let answers:[string] = [
+    let answers:[String] = [
     "14",
     "MOntpelier",
     "grapes"
     ]
     var currentQuestionIndex: Int = 0
-    
-    
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
